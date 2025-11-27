@@ -33,9 +33,10 @@ jobs:
   # Job 2: Build for macOS (Intel & Apple Silicon)
   build_python_macos:
     name: Build Python Binary - macOS Universal
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [macos-15-intel, macos-latest]
         arch:
           - amd64
           - arm64
